@@ -15,3 +15,4 @@ D:\app\windowform\MiniWord_Viet\MiniWord_Viet\obj\Debug\net8.0-windows\refint\Mi
 D:\app\windowform\MiniWord_Viet\MiniWord_Viet\obj\Debug\net8.0-windows\MiniWord_Viet.pdb
 D:\app\windowform\MiniWord_Viet\MiniWord_Viet\obj\Debug\net8.0-windows\MiniWord_Viet.genruntimeconfig.cache
 D:\app\windowform\MiniWord_Viet\MiniWord_Viet\obj\Debug\net8.0-windows\ref\MiniWord_Viet.dll
+D:\app\windowform\MiniWord_Viet\MiniWord_Viet\obj\Debug\net8.0-windows\MiniWord_Viet.sourcelink.json

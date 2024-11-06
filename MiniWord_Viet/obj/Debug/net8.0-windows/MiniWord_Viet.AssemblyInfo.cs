@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiniWord_Viet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+015b90ea07b714abc965ebcdb8318f0a51780d5e")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiniWord_Viet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiniWord_Viet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

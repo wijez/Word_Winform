@@ -56,61 +56,6 @@ namespace MiniWord_Viet
         }
 
 
-        //private void Marker_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    // Start dragging when marker is clicked
-        //    if (sender == horizontalMarker)
-        //        isDraggingHorizontal = true;
-        //    else if (sender == verticalMarker)
-        //        isDraggingVertical = true;
-        //}
-
-        //private void MarkerHorizontal_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    if (isDraggingHorizontal)
-        //    {
-        //        int newX = Math.Max(0, Math.Min(e.X + horizontalMarker.Left, rulerHorizontal.Width - horizontalMarker.Width));
-        //        horizontalMarker.Left = newX;
-
-        //        richTextBox1.SelectionIndent = newX;
-        //    }
-        //}
-
-        //private void MarkerVertical_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    if (isDraggingVertical)
-        //    {
-        //        int newY = Math.Max(0, Math.Min(e.Y + verticalMarker.Top, rulerVertical.Height - verticalMarker.Height));
-        //        verticalMarker.Top = newY;
-        //        richTextBox1.Height = newY;
-        //    }
-        //}
-
-        //private void Marker_MouseUp(object sender, MouseEventArgs e)
-        //{
-        //    isDraggingHorizontal = false;
-        //    isDraggingVertical = false;
-        //}
-
-        //private void CreateDraggableMarkers()
-        //{
-        //    horizontalMarker = new Panel
-        //    {
-        //        Size = new Size(5, rulerHorizontal.Height),
-        //        BackColor = Color.Red,
-        //        Cursor = Cursors.Hand
-        //    };
-        //    rulerHorizontal.Controls.Add(horizontalMarker);
-
-        //    verticalMarker = new Panel
-        //    {
-        //        Size = new Size(rulerVertical.Width, 5),
-        //        BackColor = Color.Red,
-        //        Cursor = Cursors.Hand
-        //    };
-        //    rulerVertical.Controls.Add(verticalMarker);
-        //}
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -122,30 +67,6 @@ namespace MiniWord_Viet
         }
 
 
-        //private void InitializeStatusStrip()
-        //{
-        //    zoomTrackBar = new TrackBar
-        //    {
-        //        Minimum = 10,
-        //        Maximum = 200,
-        //        Value = 100,
-        //        TickStyle = TickStyle.None,
-        //        Width = 100
-        //    };
-        //    zoomTrackBar.Scroll += ZoomTrackBar_Scroll;
-
-        //    trackBarHost = new ToolStripControlHost(zoomTrackBar);
-
-        //    statusStrip1.Items.Add(trackBarHost);
-
-        //    zoomLabel = new ToolStripStatusLabel("100%");
-
-        //    statusStrip1.Items.Add(zoomLabel);
-
-        //    this.Controls.Add(statusStrip1);
-        //}
-
-
         private void CreateNewRichTextBox()
         {
             RichTextBox newRichTextBox = new RichTextBox
@@ -155,64 +76,15 @@ namespace MiniWord_Viet
             };
 
             this.Controls.Add(newRichTextBox);
-            richTextBoxCount++; // Increment the count of RichTextBoxes
+            richTextBoxCount++;
         }
 
-        //private void ZoomTrackBar_Scroll(object sender, EventArgs e)
-        //{
-        //    zoomLabel.Text = $"{zoomTrackBar.Value}%";
-        //    float zoomFactor = zoomTrackBar.Value / 100f;
-        //    richTextBox1.ZoomFactor = zoomFactor;
-
-        //}
 
 
         private void SetScrollToTop()
         {
             documentPanel.AutoScrollPosition = new Point(0, 0);
         }
-
-        //private void CreateRuler(Panel rulerPanel, bool isHorizontal, Label label)
-        //{
-        //    rulerPanel.Width = isHorizontal ? richTextBox1.Width : 15;
-        //    rulerPanel.Height = isHorizontal ? 15 : richTextBox1.Height;
-        //    rulerPanel.BackColor = Color.LightGray;
-        //    this.Controls.Add(rulerPanel);
-
-        //    int step = 50;
-        //    int length = isHorizontal ? richTextBox1.Width : richTextBox1.Height;
-
-        //    for (int i = 0; i < length; i += step)
-        //    {
-        //        Label markerLabel = new Label
-        //        {
-        //            Text = (i / step).ToString(),
-        //            AutoSize = true
-        //        };
-
-        //        if (isHorizontal)
-        //            markerLabel.Location = new Point(i, 5);
-        //        else
-        //            markerLabel.Location = new Point(5, i);
-
-        //        rulerPanel.Controls.Add(markerLabel);
-        //        rulerPanel.BringToFront();
-
-        //        Panel mark = new Panel
-        //        {
-        //            Size = isHorizontal ? new Size(1, 5) : new Size(5, 1),
-        //            BackColor = Color.Black
-        //        };
-
-        //        if (isHorizontal)
-        //            mark.Location = new Point(i, 10);
-        //        else
-        //            mark.Location = new Point(10, i);
-
-        //        rulerPanel.Controls.Add(mark);
-        //    }
-        //}
-
 
 
         private void rulerVertical_Paint(object sender, PaintEventArgs e)

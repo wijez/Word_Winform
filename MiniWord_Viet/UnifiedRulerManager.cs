@@ -19,6 +19,9 @@ namespace MiniWord_Viet
         private bool isDraggingHorizontal;
         private bool isDraggingVertical;
 
+        private Dictionary<int, int> lineIndents = new Dictionary<int, int>();
+
+
         public UnifiedRulerManager(
             Panel horizontalRulerPanel,
             Panel verticalRulerPanel,
@@ -46,7 +49,6 @@ namespace MiniWord_Viet
             ConfigureRuler(rulerHorizontal, true);
             CreateRulerElements(rulerHorizontal, true);
 
-            // Setup vertical ruler
             ConfigureRuler(rulerVertical, false);
             CreateRulerElements(rulerVertical, false);
         }
@@ -57,6 +59,7 @@ namespace MiniWord_Viet
             ruler.Height = isHorizontal ? 15 : associatedRichTextBox.Height;
             ruler.BackColor = Color.LightGray;
             ruler.BringToFront();
+
         }
 
         private void CreateRulerElements(Panel ruler, bool isHorizontal)
@@ -91,13 +94,10 @@ namespace MiniWord_Viet
                 Location = isHorizontal ? new Point(position, 10) : new Point(10, position)
             };
             ruler.Controls.Add(mark);
-            ruler.BringToFront();
-
         }
 
         private void CreateDraggableMarkers()
         {
-            // Create horizontal marker
             horizontalMarker = new Panel
             {
                 Size = new Size(5, rulerHorizontal.Height),
@@ -106,7 +106,6 @@ namespace MiniWord_Viet
             };
             rulerHorizontal.Controls.Add(horizontalMarker);
 
-            // Create vertical marker
             verticalMarker = new Panel
             {
                 Size = new Size(rulerVertical.Width, 5),
@@ -118,16 +117,35 @@ namespace MiniWord_Viet
 
         private void AttachEventHandlers()
         {
-            // Horizontal marker events
             horizontalMarker.MouseDown += (s, e) => isDraggingHorizontal = true;
             horizontalMarker.MouseMove += MarkerHorizontal_MouseMove;
             horizontalMarker.MouseUp += (s, e) => isDraggingHorizontal = false;
 
-            // Vertical marker events
             verticalMarker.MouseDown += (s, e) => isDraggingVertical = true;
             verticalMarker.MouseMove += MarkerVertical_MouseMove;
             verticalMarker.MouseUp += (s, e) => isDraggingVertical = false;
+
+            associatedRichTextBox.Click += RichTextBox_Click;
         }
+
+        private void associatedRichTextBox_SelectionChanged(object sender, EventArgs e)
+        {
+            // Get the current line number based on cursor position
+            int currentLine = associatedRichTextBox.GetLineFromCharIndex(associatedRichTextBox.SelectionStart);
+
+            // Retrieve the stored indent for this line, if any
+            if (lineIndents.TryGetValue(currentLine, out int indent))
+            {
+                // Move the horizontal marker to the stored indent position
+                horizontalMarker.Left = indent;
+            }
+            else
+            {
+                // If no specific indent is stored, reset the marker to the start (e.g., 0)
+                horizontalMarker.Left = 0;
+            }
+        }
+
 
         private void MarkerHorizontal_MouseMove(object sender, MouseEventArgs e)
         {
@@ -136,7 +154,15 @@ namespace MiniWord_Viet
                 int newX = Math.Max(0, Math.Min(e.X + horizontalMarker.Left,
                     rulerHorizontal.Width - horizontalMarker.Width));
                 horizontalMarker.Left = newX;
+
+                int currentLine = associatedRichTextBox.GetLineFromCharIndex(associatedRichTextBox.SelectionStart);
+
+                // Set the indent for the current line
+                associatedRichTextBox.SelectionStart = associatedRichTextBox.GetFirstCharIndexFromLine(currentLine);
+                associatedRichTextBox.SelectionLength = 0;
                 associatedRichTextBox.SelectionIndent = newX;
+                lineIndents[currentLine] = newX;
+
             }
         }
 
@@ -148,6 +174,20 @@ namespace MiniWord_Viet
                     rulerVertical.Height - verticalMarker.Height));
                 verticalMarker.Top = newY;
                 associatedRichTextBox.Height = newY;
+            }
+        }
+
+        private void RichTextBox_Click(object sender, EventArgs e)
+        {
+            int clickedLine = associatedRichTextBox.GetLineFromCharIndex(associatedRichTextBox.SelectionStart);
+
+            if (lineIndents.TryGetValue(clickedLine, out int indent))
+            {
+                horizontalMarker.Left = indent;
+            }
+            else
+            {
+                horizontalMarker.Left = 0;
             }
         }
     }
