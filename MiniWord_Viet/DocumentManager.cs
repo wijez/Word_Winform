@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xceed.Words.NET;
 
 namespace MiniWord_Viet
 {
@@ -58,8 +59,8 @@ namespace MiniWord_Viet
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-                saveFileDialog.DefaultExt = "txt";
+                saveFileDialog.Filter = "Word Document (*.docx)|*.docx|All Files (*.*)|*.*";
+                saveFileDialog.DefaultExt = "docx";
                 saveFileDialog.Title = "Save As";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)

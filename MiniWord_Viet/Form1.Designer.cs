@@ -38,7 +38,13 @@
             tSDMenuClose = new ToolStripMenuItem();
             tSDMenuExit = new ToolStripMenuItem();
             tSMenuHome = new ToolStripMenuItem();
+            tSMenuFontStyle = new ToolStripMenuItem();
+            tsMenuFontSize = new ToolStripMenuItem();
+            tsMenuZoomIn = new ToolStripMenuItem();
+            tsMenuZoomOut = new ToolStripMenuItem();
             tSMenuInsert = new ToolStripMenuItem();
+            tSMenuImage = new ToolStripMenuItem();
+            tSMenuEmoji = new ToolStripMenuItem();
             tsMenuDesign = new ToolStripMenuItem();
             tSMenuLayout = new ToolStripMenuItem();
             tSDMenuMargin = new ToolStripMenuItem();
@@ -62,7 +68,12 @@
             tSMenuA = new ToolStripMenuItem();
             tSMenuBrush = new ToolStripMenuItem();
             tsMenuBgColor = new ToolStripMenuItem();
+            tSMenuStyle = new ToolStripComboBox();
             tSCFontSize = new ToolStripComboBox();
+            tSMenuBold = new ToolStripMenuItem();
+            tSMenuItalic = new ToolStripMenuItem();
+            tSMenuUnderline = new ToolStripMenuItem();
+            tSMenuFind = new ToolStripMenuItem();
             rulerHorizontal = new Panel();
             lblHorizontal = new Label();
             rulerVertical = new Panel();
@@ -148,15 +159,65 @@
             // 
             // tSMenuHome
             // 
+            tSMenuHome.DropDownItems.AddRange(new ToolStripItem[] { tSMenuFontStyle, tsMenuFontSize, tsMenuZoomIn, tsMenuZoomOut });
             tSMenuHome.Name = "tSMenuHome";
             tSMenuHome.Size = new Size(52, 20);
             tSMenuHome.Text = "Home";
             // 
+            // tSMenuFontStyle
+            // 
+            tSMenuFontStyle.Image = Properties.Resources.icons8_font_style_50;
+            tSMenuFontStyle.Name = "tSMenuFontStyle";
+            tSMenuFontStyle.Size = new Size(129, 22);
+            tSMenuFontStyle.Text = "Font Style";
+            tSMenuFontStyle.Click += tSMenuFontStyle_Click;
+            // 
+            // tsMenuFontSize
+            // 
+            tsMenuFontSize.Image = Properties.Resources._42242_font_size_icon;
+            tsMenuFontSize.Name = "tsMenuFontSize";
+            tsMenuFontSize.Size = new Size(129, 22);
+            tsMenuFontSize.Text = "Font Size";
+            tsMenuFontSize.Click += tsMenuFontSize_Click;
+            // 
+            // tsMenuZoomIn
+            // 
+            tsMenuZoomIn.Image = Properties.Resources.icons8_zoom_in_50;
+            tsMenuZoomIn.Name = "tsMenuZoomIn";
+            tsMenuZoomIn.Size = new Size(129, 22);
+            tsMenuZoomIn.Text = "Zoom In";
+            tsMenuZoomIn.Click += tsMenuZoomIn_Click;
+            // 
+            // tsMenuZoomOut
+            // 
+            tsMenuZoomOut.Image = Properties.Resources.icons8_zoom_out_50;
+            tsMenuZoomOut.Name = "tsMenuZoomOut";
+            tsMenuZoomOut.Size = new Size(129, 22);
+            tsMenuZoomOut.Text = "Zoom Out";
+            tsMenuZoomOut.Click += tsMenuZoomOut_Click;
+            // 
             // tSMenuInsert
             // 
+            tSMenuInsert.DropDownItems.AddRange(new ToolStripItem[] { tSMenuImage, tSMenuEmoji });
             tSMenuInsert.Name = "tSMenuInsert";
             tSMenuInsert.Size = new Size(48, 20);
             tSMenuInsert.Text = "Insert";
+            // 
+            // tSMenuImage
+            // 
+            tSMenuImage.Image = Properties.Resources.icons8_image_50;
+            tSMenuImage.Name = "tSMenuImage";
+            tSMenuImage.Size = new Size(107, 22);
+            tSMenuImage.Text = "Image";
+            tSMenuImage.Click += tSMenuImage_Click;
+            // 
+            // tSMenuEmoji
+            // 
+            tSMenuEmoji.Image = Properties.Resources.icons8_crazy_26;
+            tSMenuEmoji.Name = "tSMenuEmoji";
+            tSMenuEmoji.Size = new Size(107, 22);
+            tSMenuEmoji.Text = "Emoji";
+            tSMenuEmoji.Click += tSMenuEmoji_Click;
             // 
             // tsMenuDesign
             // 
@@ -176,49 +237,49 @@
             tSDMenuMargin.DropDownItems.AddRange(new ToolStripItem[] { narrowToolStripMenuItem, moderateToolStripMenuItem, wideToolStripMenuItem, mirroredToolStripMenuItem, office2003DefaultToolStripMenuItem, cusstomMarginToolStripMenuItem });
             tSDMenuMargin.Image = Properties.Resources.margin;
             tSDMenuMargin.Name = "tSDMenuMargin";
-            tSDMenuMargin.Size = new Size(180, 22);
+            tSDMenuMargin.Size = new Size(112, 22);
             tSDMenuMargin.Text = "Margin";
             tSDMenuMargin.Click += tSDMenuMargin_Click;
             // 
             // narrowToolStripMenuItem
             // 
             narrowToolStripMenuItem.Name = "narrowToolStripMenuItem";
-            narrowToolStripMenuItem.Size = new Size(180, 22);
+            narrowToolStripMenuItem.Size = new Size(174, 22);
             narrowToolStripMenuItem.Text = "Narrow";
             narrowToolStripMenuItem.Click += narrowToolStripMenuItem_Click;
             // 
             // moderateToolStripMenuItem
             // 
             moderateToolStripMenuItem.Name = "moderateToolStripMenuItem";
-            moderateToolStripMenuItem.Size = new Size(180, 22);
+            moderateToolStripMenuItem.Size = new Size(174, 22);
             moderateToolStripMenuItem.Text = "Moderate";
             moderateToolStripMenuItem.Click += moderateToolStripMenuItem_Click;
             // 
             // wideToolStripMenuItem
             // 
             wideToolStripMenuItem.Name = "wideToolStripMenuItem";
-            wideToolStripMenuItem.Size = new Size(180, 22);
+            wideToolStripMenuItem.Size = new Size(174, 22);
             wideToolStripMenuItem.Text = "Wide";
             wideToolStripMenuItem.Click += wideToolStripMenuItem_Click;
             // 
             // mirroredToolStripMenuItem
             // 
             mirroredToolStripMenuItem.Name = "mirroredToolStripMenuItem";
-            mirroredToolStripMenuItem.Size = new Size(180, 22);
+            mirroredToolStripMenuItem.Size = new Size(174, 22);
             mirroredToolStripMenuItem.Text = "Mirrored";
             mirroredToolStripMenuItem.Click += mirroredToolStripMenuItem_Click;
             // 
             // office2003DefaultToolStripMenuItem
             // 
             office2003DefaultToolStripMenuItem.Name = "office2003DefaultToolStripMenuItem";
-            office2003DefaultToolStripMenuItem.Size = new Size(180, 22);
+            office2003DefaultToolStripMenuItem.Size = new Size(174, 22);
             office2003DefaultToolStripMenuItem.Text = "Office 2003 Default";
             office2003DefaultToolStripMenuItem.Click += office2003DefaultToolStripMenuItem_Click;
             // 
             // cusstomMarginToolStripMenuItem
             // 
             cusstomMarginToolStripMenuItem.Name = "cusstomMarginToolStripMenuItem";
-            cusstomMarginToolStripMenuItem.Size = new Size(180, 22);
+            cusstomMarginToolStripMenuItem.Size = new Size(174, 22);
             cusstomMarginToolStripMenuItem.Text = "Custom Margins";
             cusstomMarginToolStripMenuItem.Click += cusstomMarginToolStripMenuItem_Click;
             // 
@@ -262,7 +323,7 @@
             // 
             // menuStrip2
             // 
-            menuStrip2.Items.AddRange(new ToolStripItem[] { tSMenuSave, tSMenuRedo, tSMenuUndo, tSMenuColorText, tSMenuA, tSMenuBrush, tsMenuBgColor, tSCFontSize });
+            menuStrip2.Items.AddRange(new ToolStripItem[] { tSMenuSave, tSMenuRedo, tSMenuUndo, tSMenuColorText, tSMenuA, tSMenuBrush, tsMenuBgColor, tSMenuStyle, tSCFontSize, tSMenuBold, tSMenuItalic, tSMenuUnderline, tSMenuFind });
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
             menuStrip2.Size = new Size(888, 27);
@@ -281,42 +342,86 @@
             tSMenuRedo.Image = Properties.Resources.undo;
             tSMenuRedo.Name = "tSMenuRedo";
             tSMenuRedo.Size = new Size(28, 23);
+            tSMenuRedo.Click += tSMenuRedo_Click;
             // 
             // tSMenuUndo
             // 
             tSMenuUndo.Image = Properties.Resources.undo_circular_arrow;
             tSMenuUndo.Name = "tSMenuUndo";
             tSMenuUndo.Size = new Size(28, 23);
+            tSMenuUndo.Click += tSMenuUndo_Click;
             // 
             // tSMenuColorText
             // 
             tSMenuColorText.Image = Properties.Resources.format1;
             tSMenuColorText.Name = "tSMenuColorText";
             tSMenuColorText.Size = new Size(28, 23);
+            tSMenuColorText.Click += tSMenuColorText_Click;
             // 
             // tSMenuA
             // 
             tSMenuA.Image = Properties.Resources.letter_a;
             tSMenuA.Name = "tSMenuA";
             tSMenuA.Size = new Size(28, 23);
+            tSMenuA.Click += tSMenuA_Click;
             // 
             // tSMenuBrush
             // 
             tSMenuBrush.Image = Properties.Resources.paint_brush;
             tSMenuBrush.Name = "tSMenuBrush";
             tSMenuBrush.Size = new Size(28, 23);
+            tSMenuBrush.Click += tSMenuBrush_Click;
             // 
             // tsMenuBgColor
             // 
             tsMenuBgColor.Image = Properties.Resources.paint_bucket;
             tsMenuBgColor.Name = "tsMenuBgColor";
             tsMenuBgColor.Size = new Size(28, 23);
+            tsMenuBgColor.Click += tsMenuBgColor_Click;
+            // 
+            // tSMenuStyle
+            // 
+            tSMenuStyle.Name = "tSMenuStyle";
+            tSMenuStyle.Size = new Size(150, 23);
+            tSMenuStyle.SelectedIndexChanged += tSMenuStyle_SelectedIndexChanged;
+            tSMenuStyle.Click += tSMenuStyle_Click;
+            tSMenuStyle.TextChanged += tSMenuStyle_TextChanged;
             // 
             // tSCFontSize
             // 
             tSCFontSize.AutoSize = false;
             tSCFontSize.Name = "tSCFontSize";
             tSCFontSize.Size = new Size(50, 23);
+            tSCFontSize.SelectedIndexChanged += tSCFontSize_SelectedIndexChanged;
+            tSCFontSize.Click += tSCFontSize_Click;
+            // 
+            // tSMenuBold
+            // 
+            tSMenuBold.Image = Properties.Resources._4295580_bold_font_style_text_thick_icon;
+            tSMenuBold.Name = "tSMenuBold";
+            tSMenuBold.Size = new Size(28, 23);
+            tSMenuBold.Click += tSMenuBold_Click;
+            // 
+            // tSMenuItalic
+            // 
+            tSMenuItalic.Image = Properties.Resources._4295570_italic_cursive_font_style_text_icon;
+            tSMenuItalic.Name = "tSMenuItalic";
+            tSMenuItalic.Size = new Size(28, 23);
+            tSMenuItalic.Click += tSMenuItalic_Click;
+            // 
+            // tSMenuUnderline
+            // 
+            tSMenuUnderline.Image = Properties.Resources.icons8_underline_50;
+            tSMenuUnderline.Name = "tSMenuUnderline";
+            tSMenuUnderline.Size = new Size(28, 23);
+            tSMenuUnderline.Click += tSMenuUnderline_Click;
+            // 
+            // tSMenuFind
+            // 
+            tSMenuFind.Image = Properties.Resources.icons8_find_50;
+            tSMenuFind.Name = "tSMenuFind";
+            tSMenuFind.Size = new Size(28, 23);
+            tSMenuFind.Click += tSMenuFind_Click;
             // 
             // rulerHorizontal
             // 
@@ -369,10 +474,9 @@
             documentPanel.AutoScroll = true;
             documentPanel.Controls.Add(richTextBox1);
             documentPanel.Controls.Add(statusStrip1);
-            documentPanel.Dock = DockStyle.Fill;
-            documentPanel.Location = new Point(0, 0);
+            documentPanel.Location = new Point(0, 27);
             documentPanel.Name = "documentPanel";
-            documentPanel.Size = new Size(888, 450);
+            documentPanel.Size = new Size(888, 423);
             documentPanel.TabIndex = 5;
             documentPanel.Paint += documentPanel_Paint;
             // 
@@ -385,6 +489,7 @@
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
+            richTextBox1.KeyDown += richTextBox1_KeyDown;
             // 
             // statusStrip1
             // 
@@ -427,6 +532,7 @@
             Controls.Add(menuStrip2);
             Controls.Add(documentPanel);
             MainMenuStrip = menuStrip1;
+            MaximumSize = new Size(904, 489);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -497,5 +603,16 @@
         private ToolStripMenuItem mirroredToolStripMenuItem;
         private ToolStripMenuItem office2003DefaultToolStripMenuItem;
         private ToolStripMenuItem cusstomMarginToolStripMenuItem;
+        private ToolStripMenuItem tSMenuFontStyle;
+        private ToolStripMenuItem tsMenuFontSize;
+        private ToolStripMenuItem tsMenuZoomIn;
+        private ToolStripMenuItem tsMenuZoomOut;
+        private ToolStripComboBox tSMenuStyle;
+        private ToolStripMenuItem tSMenuBold;
+        private ToolStripMenuItem tSMenuItalic;
+        private ToolStripMenuItem tSMenuUnderline;
+        private ToolStripMenuItem tSMenuFind;
+        private ToolStripMenuItem tSMenuImage;
+        private ToolStripMenuItem tSMenuEmoji;
     }
 }

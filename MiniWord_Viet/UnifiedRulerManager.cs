@@ -21,7 +21,6 @@ namespace MiniWord_Viet
 
         private Dictionary<int, int> lineIndents = new Dictionary<int, int>();
 
-
         public UnifiedRulerManager(
             Panel horizontalRulerPanel,
             Panel verticalRulerPanel,
@@ -45,7 +44,6 @@ namespace MiniWord_Viet
 
         private void CreateRulers()
         {
-            // Setup horizontal ruler
             ConfigureRuler(rulerHorizontal, true);
             CreateRulerElements(rulerHorizontal, true);
 
@@ -177,6 +175,8 @@ namespace MiniWord_Viet
             }
         }
 
+      
+
         private void RichTextBox_Click(object sender, EventArgs e)
         {
             int clickedLine = associatedRichTextBox.GetLineFromCharIndex(associatedRichTextBox.SelectionStart);
@@ -189,6 +189,7 @@ namespace MiniWord_Viet
             {
                 horizontalMarker.Left = 0;
             }
+
         }
     }
 }
